@@ -1,5 +1,6 @@
 package com.doctordocplus.doctordoc.presenter.activity;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,7 +22,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private RecyclerView rvCitas;
     private Toolbar toolbar;
 
     @Override
@@ -29,13 +29,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         showToolbar("DOCTOR DOC +", false);
-
-        rvCitas = (RecyclerView) findViewById(R.id.rv_citas_programadas);
-
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        rvCitas.setLayoutManager(llm);
-        CitaAdapter adapter = new CitaAdapter(dataSet(), this);
-        rvCitas.setAdapter(adapter);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -47,17 +40,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    private List<CitaTO> dataSet() {
-        List<CitaTO> citas = new ArrayList<>();
-        citas.add(new CitaTO("001","29 MAY","5:00 PM","Dickson Espinoza","Consulta General"));
-        citas.add(new CitaTO("002","30 MAY","10:00 AM","David Tacuchi","Consulta General"));
-        citas.add(new CitaTO("003","01 MAY","6:00 PM","Alisson Cruz","Consulta General"));
-        citas.add(new CitaTO("004","05 MAY","8:00 PM","Orestes Cachay","Consulta Especializada"));
-        citas.add(new CitaTO("005","08 MAY","11:00 AM","Jorge Guerra","Consulta General"));
-        return citas;
-    }
-
-    public void showToolbar(String title, boolean upButton){
+    public void showToolbar(String title, boolean upButton) {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(title);
@@ -79,8 +62,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
+        Intent intent = null;
+        boolean flag = false;
+
+        switch (id) {
+            case R.id.nav_citas_programadas:
+                intent = new Intent(MainActivity.this, CitasActivity.class);
+                flag = true;
+                break;
+            case R.id.nav_historial_citas:
+                intent = new Intent(MainActivity.this, HistorialCitasActivity.class);
+                flag = true;
+                break;
+            case R.id.nav_preguntas:
+                intent = new Intent(MainActivity.this, PreguntasActivity.class);
+                flag = true;
+                break;
+            case R.id.nav_configurar:
+                intent = new Intent(MainActivity.this, ConfiguracionActivity.class);
+                flag = true;
+                break;
+            case R.id.nav_acerca_de:
+                intent = new Intent(MainActivity.this, AboutActivity.class);
+                flag = true;
+                break;
+
+            case R.id.nav_salir:
+                intent = new Intent(MainActivity.this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                flag = true;
+                break;
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
+        if(flag){
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
+
         return false;
     }
 }
+

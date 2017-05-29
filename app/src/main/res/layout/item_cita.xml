@@ -38,7 +38,7 @@
                     android:id="@+id/tv_fecha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="24 FEB"
+                    android:text="29 MAY"
                     android:textColor="@color/primaryText"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -56,19 +56,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Hora"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/tv_hora"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4:00 PM"
+                    android:text="5:00 PM"
                     android:textColor="@color/primaryText"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
-
 
         <View
             android:layout_width="2dp"
@@ -95,20 +94,17 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Consulta General"
-                    android:textColor="@color/primaryText"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_num_consulta"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Nº 10423"
+                    android:text="Nº 001"
                     android:textColor="@color/primaryText"
                     android:textSize="18sp"
                     android:textStyle="bold" />
-
 
             </LinearLayout>
 
@@ -124,17 +120,16 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Paciente"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_paciente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Alisson Cruz"
+                    android:text="Dickson Espinoza"
                     android:textColor="@color/primaryText"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
 

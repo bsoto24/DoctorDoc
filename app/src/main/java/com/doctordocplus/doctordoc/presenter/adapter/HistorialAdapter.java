@@ -2,6 +2,8 @@ package com.doctordocplus.doctordoc.presenter.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.Spannable;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,51 +12,49 @@ import android.widget.TextView;
 import com.doctordocplus.doctordoc.R;
 import com.doctordocplus.doctordoc.data.entity.CitaTO;
 
-import java.util.List;
+import java.util.ArrayList;
 
-/**
- * Created by Bryam Soto on 29/05/2017.
- */
+public class HistorialAdapter extends RecyclerView.Adapter<HistorialAdapter.CitaViewHolder> {
 
-public class CitaAdapter extends RecyclerView.Adapter<CitaAdapter.CitaViewHolder> {
-
-    private List<CitaTO> citas;
+    private ArrayList<CitaTO> data;
     private Context context;
+    private String query = "";
 
-    public CitaAdapter(List<CitaTO> citas, Context context){
-        this.citas = citas;
+    public HistorialAdapter(ArrayList<CitaTO> data, Context context) {
+        this.data = data;
         this.context = context;
     }
 
     @Override
-    public CitaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cita, parent, false);
-        CitaViewHolder holder = new CitaViewHolder(v);
-        return holder;
+    public HistorialAdapter.CitaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new HistorialAdapter.CitaViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cita, parent, false));
     }
 
     @Override
-    public int getItemCount() {
-        return citas.size();
-    }
-
-    @Override
-    public void onBindViewHolder(CitaViewHolder holder, final int position) {
-        final CitaTO cita = citas.get(position);
+    public void onBindViewHolder(CitaViewHolder holder, int position) {
+        final CitaTO cita = data.get(position);
+        String name = cita.getPaciente().toLowerCase();
         holder.tvFechaConsulta.setText(cita.getFecha());
         holder.tvHoraConsulta.setText(cita.getHora());
         holder.tvNumConsulta.setText(cita.getNumCita());
         holder.tvPaciente.setText(cita.getPaciente());
         holder.tvTipoConsulta.setText(cita.getTipoConsulta());
-        if (position < 3){
-            holder.tvEstado.setText("ESTA SEMANA");
-            holder.tvEstado.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
-        }else{
-            holder.tvEstado.setText("ESTE MES");
-            holder.tvEstado.setBackgroundColor(context.getResources().getColor(R.color.colorAccent));
+
+        if (name.contains(query)) {
+            int startPos = name.indexOf(query);
+            int endPos = startPos + query.length();
+
+            Spannable spanString = Spannable.Factory.getInstance().newSpannable(holder.tvPaciente.getText());
+            spanString.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.colorAccent)), startPos, endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+            holder.tvPaciente.setText(spanString);
         }
     }
 
+    @Override
+    public int getItemCount() {
+        return data.size();
+    }
 
     public static class CitaViewHolder extends RecyclerView.ViewHolder{
 
@@ -75,5 +75,11 @@ public class CitaAdapter extends RecyclerView.Adapter<CitaAdapter.CitaViewHolder
             tvEstado = (TextView) itemView.findViewById(R.id.tv_estado);
 
         }
+    }
+
+    public void filter(ArrayList data, String query){
+        this.data = data;
+        this.query = query;
+        notifyDataSetChanged();
     }
 }

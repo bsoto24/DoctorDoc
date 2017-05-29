@@ -63,7 +63,7 @@
                 android:layout_marginTop="20dp"
                 android:onClick="loginAccount"
                 android:text="@string/login"
-                android:theme="@style/RaisedButtonDark" />
+                android:theme="@style/RaisedButtonPrimary" />
 
             <TextView
                 android:id="@+id/tv_activar"
