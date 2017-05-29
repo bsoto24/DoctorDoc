@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DoctorDoc+</string>
+    <string name="login">Iniciar sesion</string>
+    <string name="dont_have_account">¿Quieres ser Doctor Doc?</string>
+    <string name="create_here">, postula aqui</string>
+    <string name="hint_correo">Correo</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="have_activation_code">¿Ya tienes tu código?</string>
+    <string name="insert_here">ingresalo aqui</string>
+    <string name="hint_last_name">Apellidos</string>
+    <string name="hint_name">Nombres</string>
+    <string name="hint_dni">DNI</string>
+    <string name="postulate">postular</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+</resources>

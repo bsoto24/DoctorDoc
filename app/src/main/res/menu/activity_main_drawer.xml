@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Mis opciones">
+        <menu>
+            <item
+                android:id="@+id/nav_citas_programadas"
+                android:icon="@drawable/ic_tratamiento"
+                android:title="Citas programadas" />
+            <item
+                android:id="@+id/nav_historial_citas"
+                android:icon="@drawable/ic_sintomas"
+                android:title="Historial de citas" />
+            <item
+                android:id="@+id/nav_calificacion"
+                android:icon="@drawable/ic_cupones"
+                android:title="Mi calificacion" />
+            <item
+                android:id="@+id/nav_acerca_de"
+                android:icon="@drawable/ic_about"
+                android:title="Acerca de" />
+        </menu>
+    </item>
+    <item android:title="Otros">
+        <menu>
+            <item
+                android:id="@+id/nav_preguntas"
+                android:icon="@drawable/ic_preguntas"
+                android:title="Preguntas frecuentes" />
+            <item
+                android:id="@+id/nav_configurar"
+                android:icon="@drawable/ic_settings"
+                android:title="Configurar" />
+            <item
+                android:id="@+id/nav_salir"
+                android:icon="@drawable/ic_logout"
+                android:title="Cerrar session" />
+        </menu>
+    </item>
+
+</menu>
