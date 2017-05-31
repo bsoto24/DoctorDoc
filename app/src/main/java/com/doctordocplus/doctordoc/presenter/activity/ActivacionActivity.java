@@ -29,6 +29,7 @@ public class ActivacionActivity extends AppCompatActivity {
         btnContinuar = (Button) findViewById(R.id.btn_continuar);
 
         showToolbar("Activación", true);
+        getSupportActionBar().setElevation(0);
 
         vcActivacion.setListener(new VerifyCodeView.OnTextChangListener() {
             @Override

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardView"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="160dp"
     android:layout_margin="10dp"
     app:cardUseCompatPadding="true">
 
@@ -89,6 +89,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tv_tipo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -129,24 +130,6 @@
                     android:text="Dickson Espinoza"
                     android:textColor="@color/primaryText"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/tv_estado"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorPrimary"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="PROXIMO"
-                    android:textColor="@color/white"
                     android:textStyle="bold" />
             </LinearLayout>
 

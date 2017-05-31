@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".presenter.activity.MainActivity">
 
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="BUENOS DÍAS"
+            android:text="Buenos días"
             android:textColor="@color/primaryText"
             android:textSize="18sp" />
 
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:gravity="center"
-            android:text="RECIBIR CITAS"
+            android:text="Recibir citas"
             android:textColor="@color/primaryText"
             android:textSize="18sp" />
 
@@ -105,11 +105,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="PROXIMA CITA"
+            android:text="Próxima cita"
             android:textColor="@color/primaryText"
             android:textSize="18sp" />
 
-        <include layout="@layout/item_cita" />
+        <include layout="@layout/item_cita_proxima"/>
+
     </LinearLayout>
 
 </LinearLayout>

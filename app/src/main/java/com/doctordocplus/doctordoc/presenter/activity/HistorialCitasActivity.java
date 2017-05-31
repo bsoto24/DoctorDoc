@@ -53,11 +53,11 @@ public class HistorialCitasActivity extends AppCompatActivity implements SearchV
 
     private ArrayList<CitaTO> dataSet() {
         ArrayList<CitaTO> citas = new ArrayList<>();
-        citas.add(new CitaTO("Nº 001","29 MAY","5:00 PM","Dickson Espinoza","Consulta General"));
-        citas.add(new CitaTO("Nº 002","30 MAY","10:00 AM","David Tacuchi","Consulta General"));
-        citas.add(new CitaTO("Nº 003","01 MAY","6:00 PM","Alisson Cruz","Consulta General"));
-        citas.add(new CitaTO("Nº 004","05 MAY","8:00 PM","Orestes Cachay","Consulta General"));
-        citas.add(new CitaTO("Nº 005","08 MAY","11:00 AM","Jorge Guerra","Consulta General"));
+        citas.add(new CitaTO("Nº 001","29 MAY","5:00 PM","Dickson Espinoza","Resuelta"));
+        citas.add(new CitaTO("Nº 002","30 MAY","10:00 AM","David Tacuchi","Resuelta"));
+        citas.add(new CitaTO("Nº 003","01 MAY","6:00 PM","Alisson Cruz","Resuelta"));
+        citas.add(new CitaTO("Nº 004","05 MAY","8:00 PM","Orestes Cachay","Tratamiento"));
+        citas.add(new CitaTO("Nº 005","08 MAY","11:00 AM","Jorge Guerra","Tratamiento"));
         return citas;
     }
 

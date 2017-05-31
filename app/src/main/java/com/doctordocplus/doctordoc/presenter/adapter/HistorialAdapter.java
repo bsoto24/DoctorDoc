@@ -38,7 +38,13 @@ public class HistorialAdapter extends RecyclerView.Adapter<HistorialAdapter.Cita
         holder.tvHoraConsulta.setText(cita.getHora());
         holder.tvNumConsulta.setText(cita.getNumCita());
         holder.tvPaciente.setText(cita.getPaciente());
-        holder.tvTipoConsulta.setText(cita.getTipoConsulta());
+        holder.tvEstado.setText(cita.getEstado());
+
+        if (cita.getEstado().equals("Resuelta")) {
+            holder.tvEstado.setBackgroundColor(context.getResources().getColor(R.color.secondaryText));
+        } else {
+            holder.tvEstado.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
+        }
 
         if (name.contains(query)) {
             int startPos = name.indexOf(query);
@@ -56,28 +62,26 @@ public class HistorialAdapter extends RecyclerView.Adapter<HistorialAdapter.Cita
         return data.size();
     }
 
-    public static class CitaViewHolder extends RecyclerView.ViewHolder{
+    public static class CitaViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tvNumConsulta ;
-        private TextView tvTipoConsulta ;
-        private TextView tvFechaConsulta ;
-        private TextView tvHoraConsulta ;
-        private TextView tvPaciente ;
-        private TextView tvEstado ;
+        private TextView tvNumConsulta;
+        private TextView tvFechaConsulta;
+        private TextView tvHoraConsulta;
+        private TextView tvPaciente;
+        private TextView tvEstado;
 
         public CitaViewHolder(View itemView) {
             super(itemView);
             tvFechaConsulta = (TextView) itemView.findViewById(R.id.tv_fecha);
             tvHoraConsulta = (TextView) itemView.findViewById(R.id.tv_hora);
             tvNumConsulta = (TextView) itemView.findViewById(R.id.tv_num_consulta);
-            tvTipoConsulta = (TextView) itemView.findViewById(R.id.tv_tipo);
             tvPaciente = (TextView) itemView.findViewById(R.id.tv_paciente);
             tvEstado = (TextView) itemView.findViewById(R.id.tv_estado);
 
         }
     }
 
-    public void filter(ArrayList data, String query){
+    public void filter(ArrayList data, String query) {
         this.data = data;
         this.query = query;
         notifyDataSetChanged();

@@ -26,6 +26,7 @@ dependencies {
     })
 
 
+
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.1'
@@ -38,5 +39,7 @@ dependencies {
     compile 'com.zoonref:simple-view-behavior:1.0'
     compile 'com.github.irvingryan:verifycodeview:1.1.0'
     compile 'com.kyleduo.switchbutton:library:1.4.6'
+    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
+
     testCompile 'junit:junit:4.12'
 }

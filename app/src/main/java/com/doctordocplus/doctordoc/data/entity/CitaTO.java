@@ -1,7 +1,5 @@
 package com.doctordocplus.doctordoc.data.entity;
 
-import java.util.Date;
-
 /**
  * Created by Bryam Soto on 29/05/2017.
  */
@@ -11,17 +9,17 @@ public class CitaTO {
     private String fecha;
     private String hora;
     private String paciente;
-    private String tipoConsulta;
+    private String estado;
 
     public CitaTO() {
     }
 
-    public CitaTO(String numCita, String fecha, String hora, String paciente, String tipoConsulta) {
+    public CitaTO(String numCita, String fecha, String hora, String paciente, String estado) {
         this.numCita = numCita;
         this.fecha = fecha;
         this.hora = hora;
         this.paciente = paciente;
-        this.tipoConsulta = tipoConsulta;
+        this.estado = estado;
     }
 
     public String getNumCita() {
@@ -56,12 +54,12 @@ public class CitaTO {
         this.paciente = paciente;
     }
 
-    public String getTipoConsulta() {
-        return tipoConsulta;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setTipoConsulta(String tipoConsulta) {
-        this.tipoConsulta = tipoConsulta;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     @Override
@@ -71,7 +69,7 @@ public class CitaTO {
                 ", fecha='" + fecha + '\'' +
                 ", hora='" + hora + '\'' +
                 ", paciente='" + paciente + '\'' +
-                ", tipoConsulta='" + tipoConsulta + '\'' +
+                ", estado='" + estado + '\'' +
                 '}';
     }
 }

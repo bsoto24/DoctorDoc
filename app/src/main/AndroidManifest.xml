@@ -44,6 +44,9 @@
         <activity
             android:name=".presenter.activity.AboutActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".presenter.activity.CalificacionActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

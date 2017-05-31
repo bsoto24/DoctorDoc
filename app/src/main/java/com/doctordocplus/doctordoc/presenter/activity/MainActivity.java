@@ -82,6 +82,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent = new Intent(MainActivity.this, ConfiguracionActivity.class);
                 flag = true;
                 break;
+            case R.id.nav_calificacion:
+                intent = new Intent(MainActivity.this, CalificacionActivity.class);
+                flag = true;
+                break;
             case R.id.nav_acerca_de:
                 intent = new Intent(MainActivity.this, AboutActivity.class);
                 flag = true;
