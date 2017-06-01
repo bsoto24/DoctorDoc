@@ -1,21 +1,29 @@
 package com.doctordocplus.doctordoc.presenter.activity;
 
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
 
 import com.doctordocplus.doctordoc.R;
 import com.doctordocplus.doctordoc.data.entity.CitaTO;
 import com.doctordocplus.doctordoc.presenter.adapter.CitaAdapter;
+import com.kyleduo.switchbutton.SwitchButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +31,25 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
+    private SwitchButton switchButton;
+    private int NOTIFICATION_ID = 465023;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         showToolbar("DOCTOR DOC +", false);
+
+        switchButton = (SwitchButton) findViewById(R.id.sw_disponibilidad);
+
+        switchButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    notification();
+                }
+            }
+        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -107,6 +128,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         return false;
+    }
+
+    private void notification() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getBaseContext());
+
+        builder.setSmallIcon(R.drawable.ic_doctor);
+        builder.setContentTitle(getBaseContext().getString(R.string.app_name));
+        String text = getBaseContext().getString(R.string.notify_message);
+        builder.setContentText(text);
+
+        Uri notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        builder.setSound(notificationSound);
+        builder.setAutoCancel(true);
+
+        Intent notificationIntent = new Intent(this, MainActivity.class);
+        notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        android.support.v4.app.TaskStackBuilder stackBuilder = android.support.v4.app.TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(MainActivity.class);
+        stackBuilder.addNextIntent(notificationIntent);
+        stackBuilder.addNextIntent(new Intent());
+
+        PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(pendingIntent);
+
+        Notification notification = builder.build();
+        NotificationManagerCompat.from(getBaseContext()).notify(NOTIFICATION_ID + 3, notification);
     }
 }
 

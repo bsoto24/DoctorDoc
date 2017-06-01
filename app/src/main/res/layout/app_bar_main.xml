@@ -70,12 +70,13 @@
                 android:textSize="15sp" />
 
             <com.kyleduo.switchbutton.SwitchButton
+                android:id="@+id/sw_disponibilidad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:checked="true"
+                android:checked="false"
                 android:gravity="center"
                 app:kswTintColor="@color/colorPrimary" />
 

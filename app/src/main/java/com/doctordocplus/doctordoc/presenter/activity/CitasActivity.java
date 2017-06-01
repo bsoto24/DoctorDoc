@@ -1,6 +1,7 @@
 package com.doctordocplus.doctordoc.presenter.activity;
 
 import android.app.SearchManager;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -67,7 +68,9 @@ public class CitasActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.action_calendar){
-
+            Intent intent = new Intent(CitasActivity.this, CalendarActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
         return super.onOptionsItemSelected(item);
     }

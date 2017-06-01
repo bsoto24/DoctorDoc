@@ -16,5 +16,6 @@
     <string name="lorem">Lorem ipsum dolor sit amet, adipiscing elit, dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
     <string name="title_activity_about">AboutActivity</string>
     <string name="derechos_reservados">© 2017 Todos los derechos reservados</string>
+    <string name="notify_message">Tienes una cita programada a las 5:00 PM</string>
 
 </resources>

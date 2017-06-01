@@ -13,4 +13,8 @@
     <color name="regular">#FF5252</color>
     <color name="exelente">#03A9F4</color>
 
+    <color name="currentDate">#56bcea</color>
+    <color name="selectedDate">#c9e1ec</color>
+    <color name="eventDay">#FF5252</color>
+
 </resources>

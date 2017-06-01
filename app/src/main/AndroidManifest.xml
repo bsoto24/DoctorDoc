@@ -47,6 +47,7 @@
         <activity
             android:name=".presenter.activity.CalificacionActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".presenter.activity.CalendarActivity"></activity>
     </application>
 
 </manifest>
